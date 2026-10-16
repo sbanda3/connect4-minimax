@@ -11,4 +11,26 @@ public class Board {
   private final int[] heights = new int[COLS];
   private int movesPlayed = 0;
 
+  public int get(int row, int col){
+    return grid[row][col];
+  }
+
+  public in movesPlayed(){
+    return movesPlayed;
+  }
+
+  public boolean canDrop(int col){
+    return col>=0 && col<COLS && heights[col]<ROWS;
+  }
+  
+ public boolean drop(int col, int player) {
+        if (!canDrop(col)) {
+            return false;
+        }
+        grid[heights[col]][col] = player;
+        heights[col]++;
+        movesPlayed++;
+        return true;
+    }
+  
 }
